@@ -8,10 +8,10 @@ namespace Shapes
 {
     class AreaLogic
     {
-        public static double CircleArea(float r) => Math.PI* Math.Pow(r, 2);
+        public static double CircleArea(float r) => Math.Round(Math.PI* Math.Pow(r, 2), 2);
 
-        public static double RectangleArea(float a, float b) => a * b;
+        public static double RectangleArea(float a, float b) => Math.Round(a * b, 2);
 
-        public static double TriangleArea(float ba, float h) => (ba * h)/2;
+        public static double TriangleArea(float ba, float h) => Math.Round((ba * h)/2, 2);
     }
 }
