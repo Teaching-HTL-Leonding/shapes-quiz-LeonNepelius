@@ -38,7 +38,7 @@ namespace Shapes
             {
                 Shapes.Add(new Shape() { Name = "Rectangle", A = a, B = b, Area = AreaLogic.RectangleArea(a, b) });
                 var lastValue = Convert.ToSingle(textBlockArea.Text);
-                textBlockArea.Text = $"{lastValue + AreaLogic.RectangleArea(a, b)}";
+                textBlockArea.Text = $"{ Math.Round(lastValue + AreaLogic.RectangleArea(a, b), 2)}";
             }
         }
 
@@ -49,9 +49,8 @@ namespace Shapes
             {
                 Shapes.Add(new Shape() { Name = "Circle", Radius= r, Area = AreaLogic.CircleArea(r) });
                 var lastValue = Convert.ToSingle(textBlockArea.Text);
-                textBlockArea.Text = $"{lastValue + AreaLogic.CircleArea(r)}";
+                textBlockArea.Text = $"{ Math.Round(lastValue + AreaLogic.CircleArea(r), 2) }";
             }
-            
         }
 
         private void Triangle_Button_Click(object sender, RoutedEventArgs e)
@@ -61,9 +60,8 @@ namespace Shapes
             {
                 Shapes.Add(new Shape() { Name = "Triangle", Base = 5, Height = 5, Area = AreaLogic.TriangleArea(ba,h) });
                 var lastValue = Convert.ToSingle(textBlockArea.Text);
-                textBlockArea.Text = $"{lastValue + AreaLogic.TriangleArea(ba, h) }";
+                textBlockArea.Text = $"{ Math.Round(lastValue + AreaLogic.TriangleArea(ba, h), 2) }";
             }
-            
         }
     }
 }
