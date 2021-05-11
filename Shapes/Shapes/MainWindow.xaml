@@ -45,7 +45,8 @@
             <TextBox x:Name="textBoxHeight" Style="{StaticResource ResourceKey=TextBoxes}"/>
             <TextBlock Text="Radius:" Style="{StaticResource ResourceKey=TextBlocks}"/>
             <TextBox x:Name="textBoxRadius" Style="{StaticResource ResourceKey=TextBoxes}"/>
-
+            <TextBlock Text="Gesamte Fläche:" Style="{StaticResource ResourceKey=TextBlocks}"/>
+            <TextBlock x:Name="textBlockArea" Text="0" Style="{StaticResource ResourceKey=TextBlocks}"/>
         </WrapPanel>
         <DataGrid Grid.Row="0" ItemsSource="{Binding Path=Shapes}" AutoGenerateColumns="False" IsReadOnly="True"
                       CanUserAddRows="False">

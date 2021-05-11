@@ -22,7 +22,7 @@ namespace Shapes
     public partial class MainWindow : Window
     {
 
-        public ObservableCollection<Shape> Shapes { get; set; } = new();
+        public ObservableCollection<Shape> Shapes { get; } = new();
 
         public MainWindow()
         {
@@ -36,7 +36,9 @@ namespace Shapes
             if (float.TryParse(textBoxA.Text, out float a) && float.TryParse(textBoxB.Text, out float b)
                 && string.IsNullOrEmpty(textBoxBase.Text) && string.IsNullOrEmpty(textBoxHeight.Text) && string.IsNullOrEmpty(textBoxRadius.Text))
             {
-                Shapes.Add(new Shape() { Name = "Rectangle", A = a, B = b, Area = a * b });
+                Shapes.Add(new Shape() { Name = "Rectangle", A = a, B = b, Area = AreaLogic.RectangleArea(a, b) });
+                var lastValue = Convert.ToSingle(textBlockArea.Text);
+                textBlockArea.Text = $"{lastValue + AreaLogic.RectangleArea(a, b)}";
             }
         }
 
@@ -45,7 +47,9 @@ namespace Shapes
             if (float.TryParse(textBoxRadius.Text, out float r) && string.IsNullOrEmpty(textBoxA.Text)
                 && string.IsNullOrEmpty(textBoxBase.Text) && string.IsNullOrEmpty(textBoxHeight.Text) && string.IsNullOrEmpty(textBoxB.Text))
             {
-                Shapes.Add(new Shape() { Name = "Circle", Radius= r, Area = Math.PI * Math.Pow(r, 2) });
+                Shapes.Add(new Shape() { Name = "Circle", Radius= r, Area = AreaLogic.CircleArea(r) });
+                var lastValue = Convert.ToSingle(textBlockArea.Text);
+                textBlockArea.Text = $"{lastValue + AreaLogic.CircleArea(r)}";
             }
             
         }
@@ -55,7 +59,9 @@ namespace Shapes
             if (float.TryParse(textBoxBase.Text, out float ba) && float.TryParse(textBoxHeight.Text, out float h)
                 && string.IsNullOrEmpty(textBoxA.Text) && string.IsNullOrEmpty(textBoxB.Text) && string.IsNullOrEmpty(textBoxRadius.Text))
             {
-                Shapes.Add(new Shape() { Name = "Triangle", Base = 5, Height = 5, Area = ba * h });
+                Shapes.Add(new Shape() { Name = "Triangle", Base = 5, Height = 5, Area = AreaLogic.TriangleArea(ba,h) });
+                var lastValue = Convert.ToSingle(textBlockArea.Text);
+                textBlockArea.Text = $"{lastValue + AreaLogic.TriangleArea(ba, h) }";
             }
             
         }
