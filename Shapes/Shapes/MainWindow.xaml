@@ -1,0 +1,63 @@
+﻿<Window x:Class="Shapes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Shapes"
+        mc:Ignorable="d"
+        Title="Shapes" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="Buttons" TargetType="Button">
+            <Setter Property="FontFamily" Value="Comic Sans" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="10,10,0,0"></Setter>
+        </Style>
+        <Style x:Key="TextBoxes" TargetType="TextBox">
+            <Setter Property="MinWidth" Value="50" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="10,10,0,0"></Setter>
+        </Style>
+        <Style x:Key="TextBlocks" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Comic Sans" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="10,10,0,0"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Row="1">
+            <Button Click="Rectangle_Button_Click" Style="{StaticResource ResourceKey=Buttons}">Rechteck</Button>
+            <Button Click="Circle_Button_Click" Style="{StaticResource ResourceKey=Buttons}">Kreis</Button>
+            <Button Click="Triangle_Button_Click" Style="{StaticResource ResourceKey=Buttons}">Dreieck</Button>
+            <TextBlock Text="A:" Style="{StaticResource ResourceKey=TextBlocks}"/>
+            <TextBox x:Name="textBoxA" Style="{StaticResource ResourceKey=TextBoxes}"/>
+            <TextBlock Text="B:" Style="{StaticResource ResourceKey=TextBlocks}"/>
+            <TextBox x:Name="textBoxB" Style="{StaticResource ResourceKey=TextBoxes}"/>
+            <TextBlock Text="Base:" Style="{StaticResource ResourceKey=TextBlocks}"/>
+            <TextBox x:Name="textBoxBase" Style="{StaticResource ResourceKey=TextBoxes}"/>
+            <TextBlock Text="Height:" Style="{StaticResource ResourceKey=TextBlocks}"/>
+            <TextBox x:Name="textBoxHeight" Style="{StaticResource ResourceKey=TextBoxes}"/>
+            <TextBlock Text="Radius:" Style="{StaticResource ResourceKey=TextBlocks}"/>
+            <TextBox x:Name="textBoxRadius" Style="{StaticResource ResourceKey=TextBoxes}"/>
+
+        </WrapPanel>
+        <DataGrid Grid.Row="0" ItemsSource="{Binding Path=Shapes}" AutoGenerateColumns="False" IsReadOnly="True"
+                      CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" MinWidth="150" />
+                <DataGridTextColumn Header="A" Binding="{Binding Path=A}" MinWidth="100" />
+                <DataGridTextColumn Header="B" Binding="{Binding Path=B}" MinWidth="100" />
+                <DataGridTextColumn Header="Base" Binding="{Binding Path=Base}" MinWidth="100" />
+                <DataGridTextColumn Header="Height" Binding="{Binding Path=Height}" MinWidth="100" />
+                <DataGridTextColumn Header="Radius" Binding="{Binding Path=Radius}" MinWidth="100" />
+                <DataGridTextColumn Header="Area" Binding="{Binding Path=Area}" MinWidth="100" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
